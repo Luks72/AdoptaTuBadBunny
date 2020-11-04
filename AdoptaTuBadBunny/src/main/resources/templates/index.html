@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container">
+			<div class="page-header">
+				<h1>Conejos</h1>
+			</div>
+			<p> 
+				<a href="/form" class="btn btn-primary" > Nuevo conejo</a>
+			</p>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>id</th> <th>Nombre</th> <th>Sexo</th> <th>Fecha Nacimiento </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="Conejo : ${listConejo}">
+						<td th:each="${Conejo.idConejo}"></td>
+						<td th:each="${conejo.nombreConejo}"></td>
+						<td th:each="${conejo.sexoConejo}"></td>
+						<td th:each="${conejo.fechaNac}"></td>
+						<td><a th:href="@{'/update?id=' + ${conejo.idConejo}}" class="btn btn-primary">Update</a><a th:ref="@{'/delete?id=' + ${conejo.idConejo}}" class="btn btn-primary">Delete</a></td>
+					</tr>
+				</tbody>	
+			</table>
+		</div>
+</body>
+</html>
